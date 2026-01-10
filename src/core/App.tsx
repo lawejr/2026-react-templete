@@ -1,0 +1,34 @@
+import { Layout, Typography } from 'antd'
+import classNames from 'classnames'
+import { TasksPage } from '@/ui/pages/TasksPage'
+
+const { Header, Content } = Layout
+
+const shellClass = classNames('min-h-screen', 'bg-slate-50')
+
+const App = () => {
+  return (
+    <Layout className={shellClass}>
+      <Header className="bg-white shadow-sm px-6 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-lg bg-blue-600 text-white grid place-items-center font-semibold">
+            DF
+          </div>
+          <div>
+            <Typography.Title level={4} className="!mb-0">
+              DF Admin
+            </Typography.Title>
+            <Typography.Text type="secondary">
+              React + Vite + DDD
+            </Typography.Text>
+          </div>
+        </div>
+      </Header>
+      <Content className="px-6 py-6">
+        <TasksPage />
+      </Content>
+    </Layout>
+  )
+}
+
+export default App

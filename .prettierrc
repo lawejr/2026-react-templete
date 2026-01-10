@@ -1,0 +1,21 @@
+{
+  "singleQuote": true,
+  "arrowParens": "avoid",
+  "trailingComma": "all",
+  "semi": false,
+  "arrow-parens": "always",
+  "importOrder": [
+    "(.*)react(.*)",
+    "(.*)redux(.*)\",",
+    "<THIRD_PARTY_MODULES>",
+    "^~[^/UIKit](.*)$",
+    "^~/router(.*)$",
+    "^~/assets(.*)$",
+    "^~/UIKit(.*)$",
+    "^~/css(.*)$",
+    "^[./]"
+  ],
+  "importOrderSortSpecifiers": true,
+  "order": "smacss",
+  "keepOverrides": true
+}

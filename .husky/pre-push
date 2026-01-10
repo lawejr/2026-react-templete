@@ -1,0 +1,25 @@
+echo "Detecting changed TS/TSX files..."
+
+upstream="$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || true)"
+if [ -z "$upstream" ]; then
+  echo "No upstream configured; skipping lint."
+  exit 0
+fi
+
+base="$(git merge-base HEAD "$upstream" 2>/dev/null || true)"
+if [ -z "$base" ]; then
+  echo "No merge-base with upstream; skipping lint."
+  exit 0
+fi
+
+changed_files="$(git diff --name-only --diff-filter=ACMRTUXB "$base"...HEAD -- 'src/**/*.ts' 'src/**/*.tsx')"
+
+if [ -z "$changed_files" ]; then
+  echo "No TS/TSX changes to lint."
+  exit 0
+fi
+
+echo "Linting changed files:"
+printf "%s\n" "$changed_files"
+
+echo "$changed_files" | xargs npx eslint
