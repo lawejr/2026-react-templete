@@ -1,5 +1,7 @@
 import { Layout, Typography } from 'antd'
 import classNames from 'classnames'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { routes } from '@/shared/config/routes'
 import { TasksPage } from '@/ui/pages/TasksPage'
 
 const { Header, Content } = Layout
@@ -25,7 +27,13 @@ const App = () => {
         </div>
       </Header>
       <Content className="px-6 py-6">
-        <TasksPage />
+        <Routes>
+          <Route
+            path={routes.root}
+            element={<Navigate to={routes.demoTasks} replace />}
+          />
+          <Route path={routes.demoTasks} element={<TasksPage />} />
+        </Routes>
       </Content>
     </Layout>
   )
