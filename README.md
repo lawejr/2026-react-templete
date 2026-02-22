@@ -25,4 +25,4 @@ npm start         # dev-сервер
 
 ## Архитектура
 
-- Подробности по архитектуре проекта: [ARCHITECTURE.md](ARCHITECTURE.md)
+- Подробности по архитектуре проекта: [ARCHITECTURE.md](docs/ARCHITECTURE.md)
